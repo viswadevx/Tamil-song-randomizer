@@ -25,7 +25,16 @@ const songs = [
   "Edho Solla"
 ];
 
-myButton.onclick = function () {
+myButton.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * songs.length);
-  myLabel.textContent = songs[randomIndex];
-};
+
+  // Reset animation
+  myLabel.classList.remove("show");
+  myLabel.classList.add("hidden");
+
+  setTimeout(() => {
+    myLabel.textContent = songs[randomIndex];
+    myLabel.classList.remove("hidden");
+    myLabel.classList.add("show");
+  }, 100);
+});
